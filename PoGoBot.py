@@ -545,6 +545,8 @@ async def on_message(message):
                 return
 
             raid = Raid(0, ChannelRaid.nb_channel+1,pokeName,message.author, battleTime, battlePlace)
+			print("server: " + str(server))
+			print("raid name: " + raid.getRaidName())
             cCom = await client.create_channel(server, raid.getRaidName())
             cRaids[ChannelRaid.nb_channel] = ChannelRaid(cCom)
             cRaid = cRaids[ChannelRaid.nb_channel].ajouterRaid(raid)
